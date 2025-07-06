@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Board</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .job-list {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .job {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 5px solid #4CAF50;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .job h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #333;
+    }
+    .job p {
+      margin: 5px 0;
+      color: #555;
+    }
+    .apply-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .apply-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Job Board</h1>
+  <div class="job-list" id="jobList">
+    <!-- Jobs will load here -->
+  </div>
+
+  <script>
+    // Example job data
+    const jobs = [
+      {
+        title: "Front-End Developer",
+        company: "Tech Solutions",
+        location: "Remote",
+        description: "Looking for a skilled developer to build responsive websites."
+      },
+      {
+        title: "Python Developer",
+        company: "DataWorld",
+        location: "Pune",
+        description: "Experience in data analysis and visualization preferred."
+      },
+      {
+        title: "UI/UX Designer",
+        company: "Creative Minds",
+        location: "Mumbai",
+        description: "Design modern user interfaces for mobile and web apps."
+      }
+    ];
+
+    // Function to load jobs
+    const jobList = document.getElementById("jobList");
+    jobs.forEach(job => {
+      const div = document.createElement("div");
+      div.className = "job";
+      div.innerHTML = `
+        <h2>${job.title}</h2>
+        <p><strong>Company:</strong> ${job.company}</p>
+        <p><strong>Location:</strong> ${job.location}</p>
+        <p>${job.description}</p>
+        <a href="#" class="apply-btn">Apply Now</a>
+      `;
+      jobList.appendChild(div);
+    });
+  </script>
+</body>
+</html>
